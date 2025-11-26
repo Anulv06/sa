@@ -1,69 +1,98 @@
 :root {
-  --color-primary: #006cbb;
-
-  --color-white: #fff;
-  --color-gray: #dfdfdf;
-  --color-black: #000;
-
-  --color-success: #01bd78;
-  --color-error: #d40019;
+  --color-primary: #4e6d92;
+  --color-primary-light: #6ba7e9;
+  --color-success-bg: #b0b0b0; 
+  --color-success-border: #d3dfd3;
+  --color-text: #2c3e50;
+  --color-text-light: #4e5354;
+  --color-border: #e0e0e0;
+  --color-disabled: #938ea9;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --gap-xs: 4px;
+  --gap-sm: 8px;
+  --gap-md: 16px;
+  --gap-lg: 32px;
 }
 
-* {
-  box-sizing: border-box;
-
-  &::selection {
-    color: var(--color-white);
-    background-color: var(--color-primary);
-  }
+.ip-calculator {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--gap-lg);
+  color: var(--color-text);
 }
 
-@font-face {
-  font-family: 'base';
-  font-weight: 400;
-  src: url('/fonts/400.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'base';
-  font-weight: 700;
-  src: url('/fonts/700.woff2') format('woff2');
-  font-display: swap;
-}
-
-body {
-  padding: 0;
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-a {
-  width: fit-content;
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-h1,
-h2 {
-  margin-top: 0;
-  margin-bottom: 24px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-p {
-  margin: 0;
-}
-
-p + p {
-  margin: 12px 0;
-}
-
-img {
+.ip-calculator__form {
   display: flex;
-  max-width: 100%;
-  height: auto;
-  pointer-events: none;
+  gap: var(--gap-xs);
+  align-items: center;
+  padding: var(--gap-md);
+  background-color: #a1a1aa;
+  border-radius: var(--border-radius-md);
+}
+
+.ip-calculator__input,
+.ip-calculator__select {
+  flex: 1;
+  min-width: 150px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.ip-calculator__input:focus,
+.ip-calculator__select:focus {
+  border-color: var(--color-primary);
+}
+
+.ip-calculator__button {
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ip-calculator__button:hover:not(:disabled) {
+  background-color: var(--color-primary-light);
+}
+
+.ip-calculator__button:disabled {
+  background-color: var(--color-disabled);
+  cursor: not-allowed;
+}
+
+.ip-calculator__result {
+  margin-top: var(--gap-lg);
+  padding: var(--gap-md);
+  background-color: var(--color-success-bg);
+  border: 1px solid var(--color-success-border);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
+
+.ip-calculator__result-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.ip-calculator__label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.ip-calculator__value {
+  color: var(--color-text-light);
 }
